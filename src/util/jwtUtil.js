@@ -8,7 +8,7 @@ const generateToken = async function (email) {
         const user = await getUserbyEmail(email);
         console.log(user)
         const key = process.env.KEY;
-        const activeTime = 60 * 12 * 1;
+        const activeTime = "12h";
         const accessToken = jwt.sign(
             {email: user.email},
             key,

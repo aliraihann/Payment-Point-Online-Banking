@@ -133,10 +133,10 @@ async function getService(service_code) {
 async function showAllService() {
     try {
         const service = dbPool.query(`
-        SELECT *
-        FROM services  
-    `);
-    return service[0];
+            SELECT *
+            FROM services
+        `);
+    return service;
     } catch (err) {
         return ({
             "message": "Unable to extract service table",

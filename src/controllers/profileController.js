@@ -4,7 +4,6 @@ const profile = async (req, res) => {
     const {email} = req.email;
     try {
         const user = await getProfilebyEmail(email);
-        console.log(email);
         res.status(201).json({
             "status": 0,
             "message": "sukses",
@@ -30,7 +29,7 @@ const update = async (req, res) => {
     try {
         const {first_name, last_name } = req.body;
         const { email } = req.email; 
-        const newProfile = await updateProfile(first_name, last_name, email);
+        await updateProfile(first_name, last_name, email);
         const user = await getProfilebyEmail(email);
 
         res.status(201).json(
@@ -38,10 +37,10 @@ const update = async (req, res) => {
                 "status": 0,
                 "message": "Update Profile berhasil",
                 "data": {
-                  "email": user.email,
-                  "first_name": user.first_name,
-                  "last_name": user.last_name,
-                  "profile_image": user.profile_image
+                  "email": user[0].email,
+                  "first_name": user[0].first_name,
+                  "last_name": user[0].last_name,
+                  "profile_image": user[0].profile_image
                 }
               }
         )
