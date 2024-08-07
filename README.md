@@ -1,4 +1,4 @@
-# Payment-Point-Online-Banking (PPOB) Backend API
+# Payment-Point-Online-Banking (PPOB) API
 
 ## Table of Contents
 
